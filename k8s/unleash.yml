@@ -29,6 +29,11 @@ spec:
         - name: unleash
           image: unleashorg/unleash-server:7
           env:
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: timezone
+                  key: timezone
             - name: DATABASE_HOST
               valueFrom:
                 secretKeyRef:
